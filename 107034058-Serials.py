@@ -58,6 +58,10 @@ except KeyboardInterrupt:
     Date = time.strftime("%Y%m%d-%H%M%S", time.localtime())
     fileName = f'{path}{Date}.csv' 
     with open(fileName, 'w') as fileObj:
+        # 寫入欄位名稱
+        fileObj.write(', '.join(['topl', 'topr', 'botl', 'botr']))
+        fileObj.write('\n')
+        # 寫入欄位資訊
         for content in contents:
             strContent = [str(i) for i in content]
             fileObj.write(', '.join(strContent))
